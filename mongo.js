@@ -27,13 +27,13 @@ if (process.argv.length > 3) {
     number: process.argv[4]
   })
 
-  person.save().then(result => {
+  person.save().then(() => {
     console.log(`Added ${person.name} number ${person.number} to phonebook.`)
     mongoose.connection.close()
   })
 } else {
   Person.find({}).then(result => {
-    console.log("phonebook:")
+    console.log('phonebook:')
     result.forEach(person => {
       console.log(`${person.name} ${person.number}`)
     })
